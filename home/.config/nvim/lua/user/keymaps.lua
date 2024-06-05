@@ -150,6 +150,16 @@ local P = require("user.utils").PREFIXES
 
 local mappings = {
 	{
+		mode = { "n", "i" },
+		keys = "<D-w>",
+		callback = function()
+			vim.api.nvim_feedkeys("v", "nx", false)
+			vim.api.nvim_feedkeys(".", "v", false)
+		end,
+		prefix = P.misc,
+		description = "How to quit vim",
+	},
+	{
 		mode = { "n", "v" },
 		keys = "<leader>Q",
 		callback = [[<CMD>qa! <CR>]],
