@@ -357,6 +357,13 @@ local mappings = {
 	},
 	{
 		mode = { "n", "v", "i" },
+		keys = "<D-s>",
+		callback = vim.cmd.up,
+		prefix = P.misc,
+		description = "Save file",
+	},
+	{
+		mode = { "n", "v", "i" },
 		keys = "<C-s>",
 		callback = vim.cmd.up,
 		prefix = P.misc,
