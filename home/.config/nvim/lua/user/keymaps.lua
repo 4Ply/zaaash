@@ -206,13 +206,13 @@ local mappings = {
 		prefix = P.misc,
 		description = "Backspace in terminal when holding control",
 	},
-	{
-		mode = { "n" },
-		"<C-r>",
-		"r",
-		prefix = P.misc,
-		description = "Replace one character",
-	},
+	-- {
+	-- 	mode = { "n" },
+	-- 	"<C-r>",
+	-- 	"r",
+	-- 	prefix = P.misc,
+	-- 	description = "Replace one character",
+	-- },
 	{
 		mode = { "i" },
 		"<C-v>",
@@ -246,13 +246,13 @@ local mappings = {
 		prefix = P.misc,
 		description = "Write buffer and stop snippet jumps",
 	},
-	{
-		mode = { "n" },
-		"r",
-		vim.cmd.redo,
-		prefix = P.misc,
-		description = "Redo",
-	},
+	-- {
+	-- 	mode = { "n" },
+	-- 	"r",
+	-- 	vim.cmd.redo,
+	-- 	prefix = P.misc,
+	-- 	description = "Redo",
+	-- },
 	{
 		mode = { "n", "v" },
 		"<leader>y",
