@@ -192,13 +192,6 @@ local mappings = {
 		description = "Backspace in terminal when holding control",
 	},
 	{
-		mode = { "n" },
-		keys = "<C-r>",
-		callback = "r",
-		prefix = P.misc,
-		description = "Replace one character",
-	},
-	{
 		mode = { "i" },
 		keys = "<C-v>",
 		callback = [[<C-r>+]],
@@ -261,13 +254,6 @@ local mappings = {
 		end,
 		prefix = P.misc,
 		description = "Go to file under cursor",
-	},
-	{
-		mode = { "n" },
-		keys = "r",
-		callback = vim.cmd.redo,
-		prefix = P.misc,
-		description = "Redo",
 	},
 	{
 		mode = { "n", "v" },
