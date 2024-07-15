@@ -366,6 +366,20 @@ local mappings = {
 		description = "Alternate file",
 	},
 	{
+		mode = { "n" },
+		keys = "<leader><Tab>",
+		callback = "<C-^>",
+		prefix = P.nav,
+		description = "Alternate file",
+	},
+	{
+		mode = { "n" },
+		keys = "<leader>bd",
+		callback = ":bd<Enter>",
+		prefix = P.misc,
+		description = "Close file",
+	},
+	{
 		mode = { "n", "v", "i" },
 		keys = "<D-s>",
 		callback = vim.cmd.up,
