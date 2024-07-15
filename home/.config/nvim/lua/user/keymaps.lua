@@ -356,6 +356,20 @@ local mappings = {
 		description = "Alternate file",
 	},
 	{
+		mode = { "n" },
+		keys = "<leader><Tab>",
+		callback = "<C-^>",
+		prefix = P.nav,
+		description = "Alternate file",
+	},
+	{
+		mode = { "n" },
+		keys = "<leader>bd",
+		callback = ":bd<Enter>",
+		prefix = P.misc,
+		description = "Close file",
+	},
+	{
 		mode = { "n", "v", "i" },
 		keys = "<D-s>",
 		callback = vim.cmd.up,
@@ -421,13 +435,6 @@ local mappings = {
 		callback = "zr",
 		prefix = P.fold,
 		description = "Decrease folding",
-	},
-	{
-		mode = { "n" },
-		keys = "<leader><Tab>",
-		callback = "zM",
-		prefix = P.fold,
-		description = "Fold all",
 	},
 	{
 		mode = { "n" },
