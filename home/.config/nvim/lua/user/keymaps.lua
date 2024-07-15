@@ -166,8 +166,8 @@ end
 local mappings = {
 	{
 		mode = { "n", "i" },
-    "<D-w>",
-    function()
+		"<D-w>",
+		function()
 			vim.api.nvim_feedkeys("v", "nx", false)
 			vim.api.nvim_feedkeys(".", "v", false)
 		end,
@@ -329,6 +329,13 @@ local mappings = {
 	{
 		mode = "n",
 		"<leader>a",
+		"<C-^>",
+		prefix = P.nav,
+		description = "Alternate file",
+	},
+	{
+		mode = "n",
+		"<leader><Tab>",
 		"<C-^>",
 		prefix = P.nav,
 		description = "Alternate file",
