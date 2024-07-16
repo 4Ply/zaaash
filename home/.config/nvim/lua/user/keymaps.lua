@@ -341,6 +341,13 @@ local mappings = {
 		description = "Alternate file",
 	},
 	{
+		mode = "n",
+		"<leader>bd",
+		":bd<Enter>",
+		prefix = P.misc,
+		description = "Close file",
+	},
+	{
 		mode = { "n", "v", "i" },
 		"<D-s>",
 		vim.cmd.up,
