@@ -41,7 +41,7 @@ if ! require brew; then
   fi
 fi
 
-brew install bat eza ffind git-delta jq jupytext nodejs npm nvim ripgrep stow tmux vivid wget zoxide zsh
+brew install bat eza ffind git-delta jq jupytext nodejs npm nvim ripgrep stow tmux vivid wget zoxide zsh luarocks
 
 set +e
 
