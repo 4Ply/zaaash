@@ -1,3 +1,5 @@
+[[ "$TERM_PROGRAM" == "vscode" || "$TERM_PROGRAM" == "kiro" ]] && return
+
 export HISTORY_START_WITH_GLOBAL=true
 
 # Utility to add to path without duplication
@@ -83,6 +85,6 @@ airun() {
 export OLLAMA_API_BASE=http://127.0.0.1:11434
 
 airun() {
-    export OLLAMA_CONTEXT_LENGTH=8192 ollama serve
-    aider --model ollama_chat/${1}
+  export OLLAMA_CONTEXT_LENGTH=8192 ollama serve
+  aider --model ollama_chat/${1}
 }

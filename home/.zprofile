@@ -1,3 +1,5 @@
+[[ "$TERM_PROGRAM" == "vscode" || "$TERM_PROGRAM" == "kiro" ]] && return
+
 [ -f ~/.lcl.zprofile ] && source ~/.lcl.zprofile
 
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then

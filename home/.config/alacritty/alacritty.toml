@@ -1,3 +1,7 @@
+[terminal.shell]
+program = "tmux"
+args = ["new-session", "-A", "-D", "-s", "0"]
+
 [colors.primary]
 background = "#0e0e1e"
 foreground = "#cdd6f4"
