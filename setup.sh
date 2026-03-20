@@ -70,7 +70,7 @@ echo "Moving existing ~/.zshrc to ~/.zshrc_old"
 mv ~/.zshrc ~/.zshrc_old
 stow -v --adopt -t $HOME home
 
-~/.config/tmux/plugins/tpm/bin/install_plugins
+~/.tmux/plugins/tpm/bin/install_plugins
 
 nvim --headless "+Lazy! sync" +qa
 
