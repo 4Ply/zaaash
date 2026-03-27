@@ -25,7 +25,7 @@ if ! require brew; then
   echo "Installing Hombrew"
   export NONINTERACTIVE=1
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    if [ -d "/home/linuxbrew/.linuxbrew/bin/brew"]; then
+    if [ -d "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
       alias brew='sudo -Hu linuxbrew brew'
     else
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
