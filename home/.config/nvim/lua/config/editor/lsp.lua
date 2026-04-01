@@ -126,6 +126,14 @@ vim.lsp.config("basedpyright", {
 	},
 })
 
+vim.lsp.config("tailwindcss", {
+	capabilities = {
+		textDocument = {
+			colorProvider = { dynamicRegistration = true },
+		},
+	},
+})
+
 vim.lsp.config("gopls", {
 	settings = {
 		gopls = {

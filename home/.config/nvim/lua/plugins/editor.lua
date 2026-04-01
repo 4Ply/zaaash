@@ -213,6 +213,8 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
-		opts = {},
+		opts = {
+			server = { override = false },
+		},
 	},
 }
