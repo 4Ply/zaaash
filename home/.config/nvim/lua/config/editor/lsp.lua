@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-
 require("mason").setup({
 	ui = { border = "rounded" },
 	registries = {
@@ -81,9 +79,26 @@ require("typescript-tools").setup({
 	},
 })
 
-lspconfig.lua_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+-- LspAttach autocmd for basedpyright-specific on_attach logic
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client.name == "basedpyright" then
+			local path = require("user.utils").get_python_venv()
+			require("dap-python").setup(path)
+
+			if client.settings then
+				client.settings.python = vim.tbl_deep_extend("force", client.settings.python, { pythonPath = path })
+			else
+				client.config.settings =
+					vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
+			end
+			client.notify("workspace/didChangeConfiguration", { settings = nil })
+		end
+	end,
+})
+
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			hint = {
@@ -93,21 +108,7 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-lspconfig.basedpyright.setup({
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-		local path = require("user.utils").get_python_venv()
-		require("dap-python").setup(path)
-
-		if client.settings then
-			client.settings.python = vim.tbl_deep_extend("force", client.settings.python, { pythonPath = path })
-		else
-			client.config.settings =
-				vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
-		end
-		client.notify("workspace/didChangeConfiguration", { settings = nil })
-	end,
-	capabilities = capabilities,
+vim.lsp.config("basedpyright", {
 	settings = {
 		basedpyright = {
 			typeCheckingMode = "off",
@@ -125,9 +126,7 @@ lspconfig.basedpyright.setup({
 	},
 })
 
-lspconfig.gopls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+vim.lsp.config("gopls", {
 	settings = {
 		gopls = {
 			hints = {
@@ -143,9 +142,7 @@ lspconfig.gopls.setup({
 	},
 })
 
-lspconfig.kotlin_language_server.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+vim.lsp.config("kotlin_language_server", {
 	init_options = {
 		storagePath = table.concat({ vim.fn.stdpath("data") }, "nvim-data"),
 	},
@@ -159,6 +156,10 @@ lspconfig.kotlin_language_server.setup({
 		},
 	},
 })
+
+-- Enable servers excluded from automatic_enable
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("basedpyright")
 
 -- lspconfig.kulala_ls.setup({
 -- 	-- capabilities = capabilities,
