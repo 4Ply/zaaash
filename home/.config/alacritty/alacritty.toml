@@ -1,6 +1,6 @@
 [terminal.shell]
 program = "tmux"
-args = ["new-session", "-A", "-D", "-s", "0"]
+args = ["new-session", "-A", "-D", "-s", "netply"]
 
 [colors.primary]
 background = "#0e0e1e"
