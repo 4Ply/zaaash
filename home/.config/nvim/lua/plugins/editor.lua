@@ -1,20 +1,6 @@
 return {
 	-- UTILS
 	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		event = "UiEnter",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"nvim-treesitter/playground",
-			"RRethy/nvim-treesitter-textsubjects",
-			"RRethy/nvim-treesitter-endwise",
-		},
-		config = function()
-			require("config.editor.treesitter")
-		end,
-	},
-	{
 		"aaronik/treewalker.nvim",
 		event = "VeryLazy",
 		opts = {
