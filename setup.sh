@@ -63,14 +63,14 @@ mkdir -p ~/.config
 )
 
 (
-  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 )
 
 echo "Moving existing ~/.zshrc to ~/.zshrc_old"
 mv ~/.zshrc ~/.zshrc_old
 stow -v --adopt -t $HOME home
 
-~/.config/tmux/plugins/tpm/bin/install_plugins
+~/.tmux/plugins/tpm/bin/install_plugins
 
 nvim --headless "+Lazy! sync" +qa
 
